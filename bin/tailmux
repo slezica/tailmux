@@ -10,11 +10,14 @@ tmux new-session -d
 # Start tailing all files in new panes:
 for file in "$@"; do
   tmux split-window -v
-  tmux send-keys "echo tail -f '$1'" 'C-m'
+  tmux send-keys "tail -f '$1'" 'C-m'
 done
 
 # Set a regular tiled layout:
 tmux select-layout tiled
+
+# Jump the the free console (1st one):
+tmux select-pane -t 0
 
 # Get in there!
 tmux attach
