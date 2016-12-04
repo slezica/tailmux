@@ -1,0 +1,20 @@
+#!/bin/bash
+
+[[ ! $(which tmux) ]] && exit 1 # no tmux, can't run
+[[ $# == 0 ]]         && exit 0 # no files, nothing to do
+
+
+# Start an empty, detached tmux session:
+tmux new-session -d
+
+# Start tailing all files in new panes:
+for file in "$@"; do
+  tmux split-window -v
+  tmux send-keys "echo tail -f '$1'" 'C-m'
+done
+
+# Set a regular tiled layout:
+tmux select-layout tiled
+
+# Get in there!
+tmux attach

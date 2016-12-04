@@ -1,0 +1,16 @@
+{
+  "name": "tailmux",
+  "version": "1.0.0",
+  "description": "Tail multiple files at once, opening a multi-pane `tmux` session to watch those log lines scroll.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": ["bin"],
+  "bin": {
+    "tailmux": "bin/tailmux"
+  },
+  "keywords": [],
+  "author": "Santiago Lezica",
+  "license": "ISC"
+}
